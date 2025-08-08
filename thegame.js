@@ -2,10 +2,8 @@
 
 // declare humanScore globally give value 0
 let humanScore = 0;
-let playerSelection = "";
 // declare computerScore globally give value 0
 let computerScore = 0;
-let computerSelection = "";
 
 // get computer choice funtion
 // initialize variable choice
@@ -103,6 +101,9 @@ const output = document.createElement("div");
 
 div.addEventListener('click', (event) => {
     let target = event.target;
+    let computerSelection = getComputerChoice();
+    let playerSelection = "";
+    let result = "";
 
     switch(target.id){
         case 'rock':
@@ -118,23 +119,27 @@ div.addEventListener('click', (event) => {
             alert("Click the button!");
             break;
     }
+
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if(playerSelection) {
+        result = `${playRound(computerSelection, playerSelection)}`;
+        console.log(result);
+        playGame(result);
+    }
 })
 
-function playGame() {
-    do {
-        computerSelection = getComputerChoice();
-        let result = "";
-        output.textContent = "";
+function playGame(winOneRound) {
+    let result = "";
+    output.textContent = "";
 
-        console.log(playerSelection);
-        console.log(computerSelection);
-        result = `${playRound(computerSelection, playerSelection)} \n
-        Player: ${humanScore} | Computer: ${computerScore}`;
-        output.textContent = result;
+    result = winOneRound + " || Player:" + humanScore + " | Computer: " + computerScore;
+    output.textContent = result;
 
-        div.appendChild(output);
-    } while (humanScore === 5 || computerScore === 5);
-
-    output.textContent += humanScore > computerScore ? "\nHuman Wins!" : "\nComputer Wins!";
+    if (humanScore === 5 || computerScore === 5) {
+        humanScore = 0;
+        computerScore = 0;
+        output.textContent += humanScore > computerScore ? " || Human Wins!" : " || Computer Wins!";
+    }   
     div.appendChild(output);
 }
