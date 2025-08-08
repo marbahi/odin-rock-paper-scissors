@@ -2,8 +2,10 @@
 
 // declare humanScore globally give value 0
 let humanScore = 0;
+let playerSelection = "";
 // declare computerScore globally give value 0
 let computerScore = 0;
+let computerSelection = "";
 
 // get computer choice funtion
 // initialize variable choice
@@ -89,18 +91,18 @@ function playRound(computerChoice, humanChoice) {
 //         console.log("Round " + gameCount + "\t Human: " + humanScore + " | Computer: " + computerScore);
 //     }
 // }
+
 // console.log(playGame());
 
 // const rockBtn = document.querySelector("#rock");
 // const paperBtn = document.querySelector("#paper");
 // const scissorsBtn = document.querySelector("#scissors");
 
-const inputBtn = document.querySelector(".container");
+const div = document.querySelector(".container");
+const output = document.createElement("div");
 
-inputBtn.addEventListener('click', (event) => {
+div.addEventListener('click', (event) => {
     let target = event.target;
-    let playerSelection = "";
-    let computerSelection = getComputerChoice();
 
     switch(target.id){
         case 'rock':
@@ -114,9 +116,22 @@ inputBtn.addEventListener('click', (event) => {
             break;
         default:
             alert("Click the button!");
+            break;
     }
-
-    console.log(playerSelection);
-    console.log(computerSelection);
-    playRound(computerSelection, playerSelection);
 })
+
+function playGame() {
+    do {
+        computerSelection = getComputerChoice();
+        let result = "";
+        output.textContent = "";
+
+        console.log(playerSelection);
+        console.log(computerSelection);
+        result = `${playRound(computerSelection, playerSelection)} \n
+        Player: ${humanScore} | Computer: ${computerScore}`;
+        output.textContent = result;
+
+        div.appendChild(output);
+    } while (humanScore + computerScore !== 5);
+}
