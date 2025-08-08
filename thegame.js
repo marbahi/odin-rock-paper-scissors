@@ -137,9 +137,9 @@ function playGame(winOneRound) {
     output.textContent = result;
 
     if (humanScore === 5 || computerScore === 5) {
+        output.textContent += humanScore > computerScore ? " || Human Wins!" : " || Computer Wins!";
         humanScore = 0;
         computerScore = 0;
-        output.textContent += humanScore > computerScore ? " || Human Wins!" : " || Computer Wins!";
     }   
     div.appendChild(output);
 }
