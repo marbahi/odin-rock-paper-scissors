@@ -29,10 +29,11 @@ function getComputerChoice() {
 // initialize variable named choice
 // using prompt to get value
 // make new variable, valued lowercase variable choice
-function getHumanChoice() {
-    let choice = prompt("Please input your choice (Rock, Paper, Scissors)");
-    return choice.toLowerCase();
-}
+
+// function getHumanChoice() {
+//     let choice = prompt("Please input your choice (Rock, Paper, Scissors)");
+//     return choice.toLowerCase();
+// }
 // console.log(getHumanChoice());
 
 // create function playRound
@@ -90,6 +91,32 @@ function playRound(computerChoice, humanChoice) {
 // }
 // console.log(playGame());
 
-const rockBtn = document.querySelector("#rock");
-const paperBtn = document.querySelector("#paper");
-const scissorsBtn = document.querySelector("#scissors");
+// const rockBtn = document.querySelector("#rock");
+// const paperBtn = document.querySelector("#paper");
+// const scissorsBtn = document.querySelector("#scissors");
+
+const inputBtn = document.querySelector(".container");
+
+inputBtn.addEventListener('click', (event) => {
+    let target = event.target;
+    let playerSelection = "";
+    let computerSelection = getComputerChoice();
+
+    switch(target.id){
+        case 'rock':
+            playerSelection = "rock";
+            break;
+        case 'paper':
+            playerSelection = "paper";
+            break;
+        case 'scissors':
+            playerSelection = "scissors";
+            break;
+        default:
+            alert("Click the button!");
+    }
+
+    console.log(playerSelection);
+    console.log(computerSelection);
+    playRound(computerSelection, playerSelection);
+})
