@@ -134,4 +134,7 @@ function playGame() {
 
         div.appendChild(output);
     } while (humanScore + computerScore !== 5);
+
+    output.textContent += humanScore > computerScore ? "\nHuman Wins!" : "\nComputer Wins!";
+    div.appendChild(output);
 }
