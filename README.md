@@ -1,11 +1,8 @@
-
----
-
-# Rock Paper Scissors (Without UI) 🎮
+# Rock Paper Scissors (UI Version) 🎮
 
 ## 📋 Project Description
 
-This is a simple **Rock Paper Scissors** game played entirely in the browser console using JavaScript. It’s a beginner-friendly project designed to practice problem-solving and JavaScript fundamentals before diving into graphical user interface (GUI) development.
+This is an upgraded version of the **Rock Paper Scissors** game with a user interface. Originally built as a console-based game, it has been refactored to allow players to click buttons instead of typing their choices in a prompt.
 
 ---
 
@@ -13,20 +10,54 @@ This is a simple **Rock Paper Scissors** game played entirely in the browser con
 
 * Human player vs Computer.
 * Computer randomly selects between `rock`, `paper`, or `scissors`.
-* User inputs their choice via a `prompt()`.
-* Game consists of **5 rounds**.
-* Score is tracked for both players.
-* Each round announces a winner and updates the score in the console.
+* Player makes selections by clicking buttons.
+* Game continues until one player reaches **5 points**.
+* Score is tracked and displayed in real-time.
+* Winner is announced once the score limit is reached.
 
 ---
 
-## 🧠 Problem-Solving Approach
+## 🧠 Development Workflow
 
-1. Set up the project structure and test JavaScript connection.
-2. Write a function to randomly generate the computer’s choice.
-3. Prompt the user to get their choice.
-4. Compare choices and determine the round winner.
-5. Loop through 5 rounds and display updated scores after each.
+### 1. Create and push a feature branch
+
+```bash
+git checkout -b rps-ui
+git push origin rps-ui
+```
+
+Make sure you are on `rps-ui` branch before making changes.
+
+### 2. Build the UI
+
+* Remove the 5-round limit.
+* Create three buttons: **Rock**, **Paper**, **Scissors**.
+* Add event listeners to buttons that call `playRound()` with the correct choice.
+* Use DOM elements instead of `console.log()` for results and scores.
+* Display running scores and declare a winner once a player reaches 5 points.
+
+### 3. Commit and push changes
+
+```bash
+git add .
+git commit -m "feat(ui): add buttons and DOM updates"
+git push origin rps-ui
+```
+
+### 4. Merge into `main`
+
+```bash
+git checkout main
+git merge rps-ui
+git push origin main
+```
+
+### 5. Cleanup branches
+
+```bash
+git branch -d rps-ui
+git push origin --delete rps-ui
+```
 
 ---
 
@@ -44,51 +75,25 @@ rock-paper-scissors/
 
 ## 📄 How to Run the Project
 
-1. **Clone or download** this repository.
-2. Open `index.html` in your preferred browser.
-3. Open the **Developer Console** (`F12` or `Ctrl+Shift+I` → *Console* tab).
-4. The game will automatically begin once the page is loaded.
+1. Clone or download this repository.
+2. Open `index.html` in your browser.
+3. Click the buttons to play.
 
 ---
 
 ## 🛠️ Technologies Used
 
-* **HTML** (basic structure)
-* **JavaScript** (game logic)
-* **Browser Console** (for user interaction and displaying output)
+* **HTML** (UI layout)
+* **JavaScript** (game logic & DOM manipulation)
 
 ---
 
-## 📸 Example Console Output
+## 🔗 Live Preview
 
-```
-Human choice rock | Computer choice paper
-You Lose!, Paper beats Rock
-Round 1     Human: 0 | Computer: 1
-
-Human choice scissors | Computer choice paper
-You Win!, Scissors beats Paper
-Round 2     Human: 1 | Computer: 1
-...
-```
-
----
-
-## 🔍 Additional Notes
-
-* User input is **case-insensitive** (e.g., `ROCK`, `rock`, or `RoCk` are all valid).
-* The program does not reprompt for invalid input, as input validation is not covered at this stage of the curriculum.
-
----
-
-## ✅ Status
-
-✔️ **Complete and functional** — runs directly in the browser console.
+Play the game live: [https://yourusername.github.io/your-repo-name/](https://yourusername.github.io/your-repo-name/)
 
 ---
 
 ## 📚 Reference
 
 This project was developed as part of the [JavaScript Foundations](https://www.theodinproject.com/) section in **The Odin Project** curriculum.
-
----
