@@ -76,15 +76,20 @@ function playRound(computerChoice, humanChoice) {
 // make computerChoice variable to get value
 // input function playRound from result variable humanSelection and ComputerSelection
 // display round, human score, and computer score
-function playGame() {
-    let humanSelection = "";
-    let computerSelection = "";
-    for(let gameCount = 1; gameCount <= 5; gameCount++) {
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        console.log("Human choice " + humanSelection + " | Computer choice " + computerSelection);
-        console.log(playRound(computerSelection, humanSelection));
-        console.log("Round " + gameCount + "\t Human: " + humanScore + " | Computer: " + computerScore);
-    }
-}
-console.log(playGame());
+
+// function playGame() {
+//     let humanSelection = "";
+//     let computerSelection = "";
+//     for(let gameCount = 1; gameCount <= 5; gameCount++) {
+//         humanSelection = getHumanChoice();
+//         computerSelection = getComputerChoice();
+//         console.log("Human choice " + humanSelection + " | Computer choice " + computerSelection);
+//         console.log(playRound(computerSelection, humanSelection));
+//         console.log("Round " + gameCount + "\t Human: " + humanScore + " | Computer: " + computerScore);
+//     }
+// }
+// console.log(playGame());
+
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
